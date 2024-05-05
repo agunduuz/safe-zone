@@ -23,7 +23,7 @@ const config = {
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
         },
-        bankGradient: "#0179FE",
+        bankGradient: "#139649",
         indigo: {
           500: "#6172F3",
           700: "#3538CD",
@@ -70,7 +70,8 @@ const config = {
         },
       },
       backgroundImage: {
-        "bank-gradient": "linear-gradient(90deg, #0179FE 0%, #4893FF 100%)",
+        "bank-gradient":
+          "linear-gradient(to right, #187c41, #178243, #168945, #148f47, #139649);",
         "gradient-mesh": "url('/icons/gradient-mesh.svg')",
         "bank-green-gradient":
           "linear-gradient(90deg, #01797A 0%, #489399 100%)",
@@ -84,7 +85,7 @@ const config = {
         creditCard: "8px 10px 16px 0px rgba(0, 0, 0, 0.05)",
       },
       fontFamily: {
-        inter: "var(--font-inter)",
+        commissioner: "var(--font-commissioner)",
         "ibm-plex-serif": "var(--font-ibm-plex-serif)",
       },
       keyframes: {
