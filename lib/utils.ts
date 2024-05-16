@@ -2,6 +2,7 @@
 import { type ClassValue, clsx } from "clsx";
 import qs from "query-string";
 import { twMerge } from "tailwind-merge";
+import { z } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -193,3 +194,97 @@ export const getTransactionStatus = (date: Date) => {
 
   return date > twoDaysAgo ? "Processing" : "Success";
 };
+
+export const authFormSchema = (type: string) =>
+  z.object({
+    //Sign UP
+    firstName:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(3, {
+              message: "Lütfen 2 karakterden fazla giriniz",
+            }),
+    lastName:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(3, {
+              message: "Lütfen 2 karakterden fazla giriniz",
+            }),
+    address1:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .max(50, {
+              message: "Lütfen 50 karakterden az giriniz",
+            }),
+    state:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(3, {
+              message: "Lütfen 2 karakterden fazla giriniz",
+            }),
+    postalCode:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(3, {
+              message: "Lütfen 2 karakterden fazla giriniz",
+            })
+            .max(6, {
+              message: "Lütfen 7 karakterden az giriniz",
+            }),
+    dateOfBirth:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(4, {
+              message: "Lütfen 3 karakterden fazla giriniz",
+            }),
+    ssn:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(4, {
+              message: "Lütfen 3 karakterden fazla giriniz",
+            }),
+
+    // Sign IN & UP
+    email: z
+      .string({
+        required_error: "Zorunlu",
+      })
+      .email({
+        message: "Email adresinizi kontrol ediniz",
+      }),
+    password: z
+      .string({
+        required_error: "Zorunlu",
+      })
+      .min(8, {
+        message: "Lütfen 8 karakterden fazla giriniz",
+      }),
+  });
