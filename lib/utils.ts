@@ -228,7 +228,7 @@ export const authFormSchema = (type: string) =>
             .max(50, {
               message: "Lütfen 50 karakterden az giriniz",
             }),
-    state:
+    city:
       type === "sign-in"
         ? z.string().optional()
         : z
@@ -237,6 +237,20 @@ export const authFormSchema = (type: string) =>
             })
             .min(3, {
               message: "Lütfen 2 karakterden fazla giriniz",
+            }),
+    state:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: "Zorunlu",
+            })
+            .min(2, {
+              message:
+                "https://pe.usps.com/text/pub28/28apb.htm linkteki kısaltmalar geçerlidir.",
+            })
+            .max(2, {
+              message: "Lütfen 2 karakter giriniz",
             }),
     postalCode:
       type === "sign-in"
