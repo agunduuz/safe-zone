@@ -115,7 +115,9 @@ export const createLinkToken = async (user: User) => {
     const response = await plaidClient.linkTokenCreate(tokenParams);
 
     return parseStringify({ linkToken: response.data.link_token });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const createBankAccount = async ({
   userId,
