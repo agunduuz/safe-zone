@@ -2,22 +2,22 @@ export const sidebarLinks = [
   {
     imgURL: "/icons/home.svg",
     route: "/",
-    label: "Anasayfa",
+    label: "Home",
   },
   {
     imgURL: "/icons/dollar-circle.svg",
     route: "/my-banks",
-    label: "Banka Bilgilerim",
+    label: "My Banks",
   },
   {
     imgURL: "/icons/transaction.svg",
     route: "/transaction-history",
-    label: "İşlem Geçmişi",
+    label: "Transaction History",
   },
   {
     imgURL: "/icons/money-send.svg",
     route: "/payment-transfer",
-    label: "Para Transferi",
+    label: "Transfer Funds",
   },
 ];
 
@@ -127,6 +127,12 @@ export const transactionCategoryStyles = {
     backgroundColor: "bg-[#12B76A]",
     textColor: "text-[#027A48]",
     chipBackgroundColor: "bg-[#ECFDF3]",
+  },
+  Travel: {
+    borderColor: "border-[#0047AB]",
+    backgroundColor: "bg-blue-500",
+    textColor: "text-blue-700",
+    chipBackgroundColor: "bg-[#FFF]",
   },
   default: {
     borderColor: "",

@@ -80,13 +80,9 @@ const AuthForm = ({ type }: { type: string }) => {
         </Link>
         <div className="flex col gap-1 md:gap-3">
           <h2 className="text-24 lg:text-36 font-semibold text-gray-900">
-            {user
-              ? "Hesaba Yönlendiriliyor"
-              : type == "sign-in"
-              ? "Giriş Yap"
-              : "Kayıt Ol"}
+            {user ? "Link Account" : type == "sign-in" ? "Sign In" : "Sign Up"}
             <p className="text-16 font-normal text-gray-600">
-              {user ? "Hesabınızı Giriniz" : "Lütfen Bilgilerinizi Giriniz"}
+              {user ? "Enter your account" : "Please enter your details"}
             </p>
           </h2>
         </div>
@@ -105,55 +101,55 @@ const AuthForm = ({ type }: { type: string }) => {
                     <CustomInput
                       control={form.control}
                       name="firstName"
-                      label="Adınız"
-                      placeholder="Adınızı girin"
+                      label="First Name"
+                      placeholder="Enter your first name"
                     />
                     <CustomInput
                       control={form.control}
                       name="lastName"
-                      label="Soyadınız"
-                      placeholder="Soyadınızı girin"
+                      label="Last Name"
+                      placeholder="Enter your last name"
                     />
                   </div>
                   <CustomInput
                     control={form.control}
                     name="address1"
-                    label="Adres"
-                    placeholder="Adresinizi girin"
+                    label="Address"
+                    placeholder="Enter your specific address"
                   />
                   <CustomInput
                     control={form.control}
                     name="city"
-                    label="Şehir"
-                    placeholder="Yaşadığınız şehri girin"
+                    label="City"
+                    placeholder="Enter your city"
                   />
                   <div className="flex gap-4">
                     <CustomInput
                       control={form.control}
                       name="state"
-                      label="State (Sadece ABD Eyaletleri)"
-                      placeholder="Örn: NY, AK, IN vb."
+                      label="State"
+                      placeholder="Example: NY, AK, IN"
                     />
                     <CustomInput
                       control={form.control}
                       name="postalCode"
-                      label="Posta Kodu"
-                      placeholder="Örn: 11101"
+                      label="Postal Code"
+                      placeholder="Example: 11101"
                     />
                   </div>
                   <div className="flex gap-4">
                     <CustomInput
                       control={form.control}
                       name="dateOfBirth"
-                      label="Doğum Tarihi"
-                      placeholder="Örn: 1997"
+                      label="Date of Birth"
+                      placeholder="YYYY-MM-DD"
                     />
 
                     <CustomInput
                       control={form.control}
                       name="ssn"
-                      label="Sosyal Güvenlik Numarası"
-                      placeholder="Örn: 1234"
+                      label="SSN"
+                      placeholder="Example: 1234"
                     />
                   </div>
                 </>
@@ -162,26 +158,26 @@ const AuthForm = ({ type }: { type: string }) => {
                 control={form.control}
                 name="email"
                 label="Email"
-                placeholder="Emailinizi girin"
+                placeholder="Enter your email"
               />
 
               <CustomInput
                 control={form.control}
                 name="password"
-                label="Şifre"
-                placeholder="Şifrenizi girin"
+                label="Password"
+                placeholder="Enter your password"
               />
               <div className="flex flex-col gap-4">
                 <Button type="submit" className="form-btn" disabled={isLoading}>
                   {isLoading ? (
                     <>
                       <Loader2 size={20} className="animate-spin" /> &nbsp;
-                      Yükleniyor...
+                      Loading...
                     </>
                   ) : type === "sign-in" ? (
-                    "Giriş Yap"
+                    "Sign In"
                   ) : (
-                    "Kayıt Ol"
+                    "Sign Up"
                   )}
                 </Button>
               </div>
@@ -190,14 +186,14 @@ const AuthForm = ({ type }: { type: string }) => {
           <footer className="flex justify-center gap-1">
             <p className="text-14 font-normal text-gray-400">
               {type === "sign-in"
-                ? "Henüz hesabınız yok mu?"
-                : "Zaten bir hesabınız var mı?"}
+                ? "Don't have an account?"
+                : "Already have an account?"}
             </p>
             <Link
               className="form-link"
               href={type === "sign-in" ? "/sign-up" : "/sign-in"}
             >
-              {type === "sign-in" ? "Kaydol" : "Giriş Yap"}
+              {type === "sign-in" ? "Sign Up" : "Sign In"}
             </Link>
           </footer>
         </>

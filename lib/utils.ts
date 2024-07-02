@@ -39,22 +39,22 @@ export const formatDateTime = (dateString: Date) => {
   };
 
   const formattedDateTime: string = new Date(dateString).toLocaleString(
-    "tr-TR",
+    "en-US",
     dateTimeOptions
   );
 
   const formattedDateDay: string = new Date(dateString).toLocaleString(
-    "tr-TR",
+    "en-US",
     dateDayOptions
   );
 
   const formattedDate: string = new Date(dateString).toLocaleString(
-    "tr-TR",
+    "en-US",
     dateOptions
   );
 
   const formattedTime: string = new Date(dateString).toLocaleString(
-    "tr-TR",
+    "en-US",
     timeOptions
   );
 
@@ -67,9 +67,9 @@ export const formatDateTime = (dateString: Date) => {
 };
 
 export function formatAmount(amount: number): string {
-  const formatter = new Intl.NumberFormat("tr-TR", {
+  const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "TRY",
+    currency: "USD",
     minimumFractionDigits: 2,
   });
 
@@ -106,10 +106,10 @@ export function getAccountTypeColors(type: AccountTypes) {
   switch (type) {
     case "depository":
       return {
-        bg: "bg-blue-25",
-        lightBg: "bg-blue-100",
-        title: "text-blue-900",
-        subText: "text-blue-700",
+        bg: "bg-green-25",
+        lightBg: "bg-green-100",
+        title: "text-green-900",
+        subText: "text-green-700",
       };
 
     case "credit":
@@ -203,102 +203,102 @@ export const authFormSchema = (type: string) =>
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(3, {
-              message: "Lütfen 2 karakterden fazla giriniz",
+              message: "Please enter more than 2 characters",
             }),
     lastName:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(3, {
-              message: "Lütfen 2 karakterden fazla giriniz",
+              message: "Please enter more than 2 characters",
             }),
     address1:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .max(50, {
-              message: "Lütfen 50 karakterden az giriniz",
+              message: "Please enter less than 50 characters",
             }),
     city:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(3, {
-              message: "Lütfen 2 karakterden fazla giriniz",
+              message: "Please enter more than 2 characters",
             }),
     state:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(2, {
               message:
-                "https://pe.usps.com/text/pub28/28apb.htm linkteki kısaltmalar geçerlidir.",
+                "Abbreviations from the link https://pe.usps.com/text/pub28/28apb.htm are valid.",
             })
             .max(2, {
-              message: "Lütfen 2 karakter giriniz",
+              message: "Please enter just a 2 characters",
             }),
     postalCode:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(3, {
-              message: "Lütfen 2 karakterden fazla giriniz",
+              message: "Please enter more than 2 characters",
             })
             .max(6, {
-              message: "Lütfen 7 karakterden az giriniz",
+              message: "Please enter less than 7 characters",
             }),
     dateOfBirth:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(4, {
-              message: "Lütfen 3 karakterden fazla giriniz",
+              message: "Please enter more than 3 characters",
             }),
     ssn:
       type === "sign-in"
         ? z.string().optional()
         : z
             .string({
-              required_error: "Zorunlu",
+              required_error: "Required",
             })
             .min(4, {
-              message: "Lütfen 3 karakterden fazla giriniz",
+              message: "Please enter more than 3 characters",
             }),
 
     // Sign IN & UP
     email: z
       .string({
-        required_error: "Zorunlu",
+        required_error: "Required",
       })
       .email({
-        message: "Email adresinizi kontrol ediniz",
+        message: "Please check your email address",
       }),
     password: z
       .string({
-        required_error: "Zorunlu",
+        required_error: "Required",
       })
       .min(8, {
-        message: "Lütfen 8 karakterden fazla giriniz",
+        message: "Please enter more than 8 characters",
       }),
   });
